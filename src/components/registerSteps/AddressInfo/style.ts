@@ -1,3 +1,4 @@
+import { InputDiv } from './../../Input/style';
 import styled from "styled-components";
 
 export const AddressInfoDiv = styled.main`
@@ -57,6 +58,10 @@ export const AddressInfoDiv = styled.main`
     }
 
     .overview .personSVG svg{
+        color: #00AE63;
+    }
+
+    .overview .homeSVG svg{
         color: var(--color-primary);
     }
 
@@ -65,6 +70,36 @@ export const AddressInfoDiv = styled.main`
         display: flex;
         flex-direction: column;
         gap: 22px;
+    }
+    
+    form .inputDiv{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    form .inputDiv input {
+        height: 37px;
+        background-color: var(--grey-0);
+        border-radius: 4px;
+        padding-left: 10px;
+    }
+    
+    form .inputDiv label {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+    
+    form .inputDiv p {
+        position: absolute;
+        bottom: -16px;
+        left: 5px;
+        color: #ff2222;
+        font-size: 14px;
+        font-weight: 500;
     }
 
     form .twoInputsDiv{
@@ -75,38 +110,29 @@ export const AddressInfoDiv = styled.main`
 
         width: 100%;
     }
-    
-    form .inputDiv{
-        position: relative;
+
+    form .fourInputsDiv{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 51px;
+
         width: 100%;
     }
 
-    form .inputDiv input {
-        height: 37px;
-        background-color: var(--grey-0);
-        border-radius: 4px;
-        padding-left: 10px;
+    form .fourInputsDiv > .fourInputsSecDiv{
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+
+        width: 100%;
     }
 
-    form .inputDiv label {
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 500;
-        margin-bottom: 10px;
+    form .fourInputsDiv input{
+        width: 100%;
     }
 
-    form .inputDiv p {
-        position: absolute;
-        bottom: -16px;
-        left: 5px;
-        color: #ff2222;
-        font-size: 14px;
-        font-weight: 500;
-    }
-
-    button{
+    .nextButton{
         position: absolute;
         bottom: -130px;
         right: -40px;
@@ -120,5 +146,25 @@ export const AddressInfoDiv = styled.main`
         line-height: 24px;
         font-weight: 500;
         color: white;
+    }
+
+    .returnButton{
+        position: absolute;
+        bottom: -130px;
+        right: 172px;
+
+        width: 192px;
+        height: 46px;
+        border-radius: 4px;
+
+        background-color: #8C98A9;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 500;
+        color: white;
+    }
+
+    button:hover{
+        cursor: pointer;
     }
 `

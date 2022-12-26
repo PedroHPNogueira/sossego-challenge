@@ -1,79 +1,82 @@
-import { useContext } from "react"
-import { UserInfoDiv } from "./style"
+import { useContext } from "react";
+import { UserInfoDiv } from "./style";
 import { useForm } from "react-hook-form";
-import {yupResolver} from "@hookform/resolvers/yup"
-import { userInfoSchema } from "../../../schemas/UserInfo.schema";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { userInfoSchema } from "../../../schemas/userInfo.schema";
 import { IUserInfo } from "../../../interfaces/userInterfaces";
 
-import {BsPersonFill as Person} from "react-icons/bs";
-import {RiHome4Fill as Home} from "react-icons/ri";
-import {CgFileDocument as Document} from "react-icons/cg";
+import { BsPersonFill as Person } from "react-icons/bs";
+import { RiHome4Fill as Home } from "react-icons/ri";
+import { CgFileDocument as Document } from "react-icons/cg";
 import { UserContext } from "../../../contexts/UserContext";
 
 export const UserInfo = () => {
+  const { submitUserInfo, userInCreation } = useContext(UserContext);
 
-    const {submitUserInfo, userInCreation} = useContext(UserContext)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IUserInfo>({
+    resolver: yupResolver(userInfoSchema),
+    defaultValues: {
+      name: userInCreation.name,
+      password: userInCreation.password,
+      confirmPassword: userInCreation.password,
+      email: userInCreation.email,
+      birthDate: userInCreation.birthDate,
+    },
+  });
 
-    const {  register, handleSubmit, formState: {errors}} = useForm<IUserInfo>({
-        resolver: yupResolver(userInfoSchema),
-        defaultValues:{
-            name: userInCreation.name,
-            password: userInCreation.password,
-            confirmPassword: userInCreation.password,
-            email: userInCreation.email,
-            birthDate: userInCreation.birthDate
-        }
-    })
-
-    return (
-        <UserInfoDiv>
-            <h1>Criação de usuário</h1>
-            <div className="overview">
-                <div className="personSVG">
-                    <Person/>
-                </div>
-                <p>Identificação do usuário</p>
-                <div>
-                    <Home/>
-                </div>
-                <p>Endereço do usuário</p>
-                <div>
-                    <Document/>
-                </div>
-                <p>Sobre você</p>
-            </div>
-            <form onSubmit={handleSubmit(submitUserInfo)}>
-                <div className="inputDiv">
-                    <label>Nome</label>
-                    <input type="text" {...register("name")}/>
-                    <p>{errors.name?.message}</p>
-                </div>
-                <div className="twoInputsDiv">
-                    <div className="inputDiv">
-                        <label>Senha</label>
-                        <input type="password" {...register("password")} />
-                        <p>{errors.password?.message}</p>
-                    </div>
-                    <div className="inputDiv">
-                        <label>Confirmar senha</label>
-                        <input type="password" {...register("confirmPassword")} />
-                        <p>{errors.confirmPassword?.message}</p>
-                    </div>
-                </div>
-                <div className="twoInputsDiv">
-                    <div className="inputDiv">
-                        <label>Email</label>
-                        <input type="text" {...register("email")}/>
-                        <p>{errors.email?.message}</p>
-                    </div>
-                    <div className="inputDiv">
-                        <label>Data de nascimento</label>
-                        <input type="date" {...register("birthDate")}/>
-                        <p>{errors.birthDate?.message}</p>
-                    </div>
-                </div>
-                <button type="submit">Próximo passo</button>
-            </form>
-        </UserInfoDiv>
-    )
-}
+  return (
+    <UserInfoDiv>
+      <h1>Criação de usuário</h1>
+      <div className="overview">
+        <div className="personSVG">
+          <Person />
+        </div>
+        <p>Identificação do usuário</p>
+        <div>
+          <Home />
+        </div>
+        <p>Endereço do usuário</p>
+        <div>
+          <Document />
+        </div>
+        <p>Sobre você</p>
+      </div>
+      <form onSubmit={handleSubmit(submitUserInfo)}>
+        <div className="inputDiv">
+          <label>Nome</label>
+          <input type="text" {...register("name")} />
+          <p>{errors.name?.message}</p>
+        </div>
+        <div className="twoInputsDiv">
+          <div className="inputDiv">
+            <label>Senha</label>
+            <input type="password" {...register("password")} />
+            <p>{errors.password?.message}</p>
+          </div>
+          <div className="inputDiv">
+            <label>Confirmar senha</label>
+            <input type="password" {...register("confirmPassword")} />
+            <p>{errors.confirmPassword?.message}</p>
+          </div>
+        </div>
+        <div className="twoInputsDiv">
+          <div className="inputDiv">
+            <label>Email</label>
+            <input type="text" {...register("email")} />
+            <p>{errors.email?.message}</p>
+          </div>
+          <div className="inputDiv">
+            <label>Data de nascimento</label>
+            <input type="date" {...register("birthDate")} />
+            <p>{errors.birthDate?.message}</p>
+          </div>
+        </div>
+        <button type="submit">Próximo passo</button>
+      </form>
+    </UserInfoDiv>
+  );
+};

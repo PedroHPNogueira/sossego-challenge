@@ -1,5 +1,6 @@
 import { createContext, useState  } from "react"
-import { IUserInfo, IUserInCreation } from "../interfaces/userInterfaces"
+import { IUserInfo, IUserInCreation, IAddress } from "../interfaces/userInterfaces"
+import { useNavigate } from "react-router"
 
 interface IUserContextProps{
     children: React.ReactNode
@@ -7,14 +8,17 @@ interface IUserContextProps{
 
 interface IUserContext{
     submitUserInfo: (data: IUserInfo) => void,
-    userInCreation: IUserInCreation
+    submitAddressInfo: (data:IAddress) => void,
+    userInCreation: IUserInCreation,
 }
 
 export const UserContext = createContext<IUserContext>({} as IUserContext);
 
 const UserProvider = ({ children }: IUserContextProps) => {
     const [usersCreated, setUsersCreated] = useState([])
-    const [userInCreation, serUserInCreation] = useState<IUserInCreation>({name: "pedrin", password: "12121212", email: "pedrin@mail.com", birthDate: new Date()})
+    const [userInCreation, serUserInCreation] = useState<IUserInCreation>({})
+
+    const navigate = useNavigate()
 
     const submitUserInfo = (data: IUserInfo) => {
         delete data.confirmPassword
@@ -23,11 +27,18 @@ const UserProvider = ({ children }: IUserContextProps) => {
         user = {...userInCreation,...data}
         serUserInCreation(user)
 
-        
+        navigate("/register/address")
+    }
+
+    const submitAddressInfo = (data: IAddress) => {
+        let user = {...userInCreation, address: data}
+        serUserInCreation(user)
+
+        console.log(user)
     }
 
     return (
-        <UserContext.Provider value={{ submitUserInfo, userInCreation}}>
+        <UserContext.Provider value={{ submitUserInfo, submitAddressInfo, userInCreation}}>
             {children}
         </UserContext.Provider>
     )
