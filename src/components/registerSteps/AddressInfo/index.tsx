@@ -1,79 +1,94 @@
-import { useContext } from "react"
-import { AddressInfoDiv } from "./style"
+import { useContext } from "react";
+import { AddressInfoDiv } from "./style";
 import { useForm } from "react-hook-form";
-import {yupResolver} from "@hookform/resolvers/yup"
-import { userInfoSchema } from "../../../schemas/UserInfo.schema";
-import { IUserInfo } from "../../../interfaces/userInterfaces";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { addressInfoSchema } from "../../../schemas/addressInfo.schema";
+import { IAddress } from "../../../interfaces/userInterfaces";
+import { useNavigate } from "react-router-dom";
 
-import {BsPersonFill as Person} from "react-icons/bs";
-import {RiHome4Fill as Home} from "react-icons/ri";
-import {CgFileDocument as Document} from "react-icons/cg";
+import { BsPersonFill as Person } from "react-icons/bs";
+import { RiHome4Fill as Home } from "react-icons/ri";
+import { CgFileDocument as Document } from "react-icons/cg";
 import { UserContext } from "../../../contexts/UserContext";
 
 export const AddressInfo = () => {
+  const navigate = useNavigate()
 
-    const {submitUserInfo, userInCreation} = useContext(UserContext)
+  const { submitAddressInfo,userInCreation } = useContext(UserContext);
 
-    const {  register, handleSubmit, formState: {errors}} = useForm<IUserInfo>({
-        resolver: yupResolver(userInfoSchema),
-        defaultValues:{
-            name: userInCreation.name,
-            password: userInCreation.password,
-            confirmPassword: userInCreation.password,
-            email: userInCreation.email,
-            birthDate: userInCreation.birthDate
-        }
-    })
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IAddress>({
+    resolver: yupResolver(addressInfoSchema),
+    defaultValues: {
+      cep: userInCreation.address?.cep,
+      street: userInCreation.address?.street,
+      number: userInCreation.address?.number,
+      neighborhood: userInCreation.address?.neighborhood,
+      city: userInCreation.address?.city,
+      referenceLocation: userInCreation.address?.referenceLocation,
+    },
+  });
 
-    return (
-        <AddressInfoDiv>
-            <h1>Criação de usuário</h1>
-            <div className="overview">
-                <div className="personSVG">
-                    <Person/>
-                </div>
-                <p>Identificação do usuário</p>
-                <div>
-                    <Home/>
-                </div>
-                <p>Endereço do usuário</p>
-                <div>
-                    <Document/>
-                </div>
-                <p>Sobre você</p>
+  return (
+    <AddressInfoDiv>
+      <h1>Criação de usuário</h1>
+      <div className="overview">
+        <div className="personSVG">
+          <Person />
+        </div>
+        <p>Identificação do usuário</p>
+        <div className="homeSVG">
+          <Home />
+        </div>
+        <p>Endereço do usuário</p>
+        <div>
+          <Document />
+        </div>
+        <p>Sobre você</p>
+      </div>
+      <form onSubmit={handleSubmit(submitAddressInfo)}>
+        <div className="twoInputsDiv">
+          <div className="inputDiv">
+            <label>CEP</label>
+            <input type="text" {...register("cep")} />
+            <p>{errors.cep?.message}</p>
+          </div>
+          <div className="inputDiv">
+            <label>Rua</label>
+            <input type="text" {...register("street")} />
+            <p>{errors.street?.message}</p>
+          </div>
+        </div>
+        <div className="fourInputsDiv">
+          <div className="fourInputsSecDiv">
+            <div className="inputDiv">
+              <label>Número</label>
+              <input type="text" {...register("number")} />
+              <p>{errors.number?.message}</p>
             </div>
-            <form onSubmit={handleSubmit(submitUserInfo)}>
-                <div className="inputDiv">
-                    <label>Pika</label>
-                    <input type="text" {...register("name")}/>
-                    <p>{errors.name?.message}</p>
-                </div>
-                <div className="twoInputsDiv">
-                    <div className="inputDiv">
-                        <label>Senha</label>
-                        <input type="password" {...register("password")} />
-                        <p>{errors.password?.message}</p>
-                    </div>
-                    <div className="inputDiv">
-                        <label>Confirmar senha</label>
-                        <input type="password" {...register("confirmPassword")} />
-                        <p>{errors.confirmPassword?.message}</p>
-                    </div>
-                </div>
-                <div className="twoInputsDiv">
-                    <div className="inputDiv">
-                        <label>Email</label>
-                        <input type="text" {...register("email")}/>
-                        <p>{errors.email?.message}</p>
-                    </div>
-                    <div className="inputDiv">
-                        <label>Data de nascimento</label>
-                        <input type="date" {...register("birthDate")}/>
-                        <p>{errors.birthDate?.message}</p>
-                    </div>
-                </div>
-                <button type="submit">Próximo passo</button>
-            </form>
-        </AddressInfoDiv>
-    )
-}
+            <div className="inputDiv">
+              <label>Bairro</label>
+              <input type="text" {...register("neighborhood")} />
+              <p>{errors.neighborhood?.message}</p>
+            </div>
+          </div>
+          <div className="inputDiv">
+            <label>Cidade</label>
+            <input type="text" {...register("city")} />
+            <p>{errors.city?.message}</p>
+          </div>
+        </div>
+        <div className="inputDiv">
+          <label>Ponto de referência</label>
+          <input type="text" {...register("referenceLocation")} />
+          <p>{errors.referenceLocation?.message}</p>
+        </div>
+        <button className="returnButton" onClick={() => {navigate("/register/identify")}}>Anterior</button>
+        <button className="nextButton" type="submit">Próximo passo</button>
+      </form>
+    </AddressInfoDiv>
+  );
+};
