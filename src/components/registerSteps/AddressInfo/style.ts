@@ -1,49 +1,28 @@
 import styled from "styled-components";
 
-export const RegisterMain = styled.main`
+export const AddressInfoDiv = styled.main`
 
-    .background{
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        height: 100vh;
-        width: 100vw;
-    }
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
 
-    .background .sossegoDiv {
-        display: flex;
-        width: 52%;
-        background-color: var(--color-primary);
-    }
+    width: 864px;
+    height: 636px;
+    padding: 48px 71px 0 51px;
 
-    .background .sossegoDiv > img {
-        width: 70%;
-        opacity: 0.8;
+    background-color: white;
+    box-shadow: 0.3px 0.3px 8px #ddd, -0.3px -0.3px 8px #ddd;
 
-        margin: auto;
-    }
-
-    .step1{
-        position: absolute;
-        z-index: 1;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%);
-        width: 864px;
-        height: 636px;
-        padding: 48px 71px 0 51px;
-
-        background-color: white;
-        box-shadow: 0.3px 0.3px 8px #ddd, -0.3px -0.3px 8px #ddd;
-    }
-
-    .step1 h1{
+    h1{
         font-size: 36px;
         font-weight: 500;
         line-height: 48px;
     }
 
-    .step1 .steps{
+    .overview{
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -53,62 +32,72 @@ export const RegisterMain = styled.main`
         margin-bottom: 40px;
     }
 
-    .step1 .steps div {
+    .overview div {
         display: flex;
 
         height: 44px;
         width: 44px;
         border-radius: 50%;
+
         background-color: var(--grey-0);
     }
 
-    .step1 .steps div svg{
+    .overview div svg{
         height: 19px;
         width: 19px;
-        color: var(--grey-1);
         margin: auto;
+
+        color: var(--grey-1);
     }
 
-    .step1 .steps p{
+    .overview p{
         font-weight: 500;
         font-size: 16px;
         line-height: 24px;
     }
 
-    .step1 .steps .personSVG svg{
+    .overview .personSVG svg{
         color: var(--color-primary);
     }
 
-    .step1 form {
+    form {
         position: relative;
         display: flex;
         flex-direction: column;
-
         gap: 22px;
     }
 
-    .step1 form .inputDiv{
+    form .twoInputsDiv{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 51px;
+
+        width: 100%;
+    }
+    
+    form .inputDiv{
         position: relative;
         display: flex;
         flex-direction: column;
         width: 100%;
     }
 
-    .step1 form .inputDiv input {
+    form .inputDiv input {
         height: 37px;
         background-color: var(--grey-0);
         border-radius: 4px;
         padding-left: 10px;
     }
 
-    .step1 form .inputDiv label {
+    form .inputDiv label {
         font-size: 16px;
         line-height: 24px;
         font-weight: 500;
         margin-bottom: 10px;
     }
 
-    .step1 form .inputDiv p {
+    form .inputDiv p {
         position: absolute;
         bottom: -16px;
         left: 5px;
@@ -117,24 +106,16 @@ export const RegisterMain = styled.main`
         font-weight: 500;
     }
 
-    .step1 form .twoInputsDiv{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 51px;
-
-        width: 100%;
-    }
-
-    .step1 button{
+    button{
         position: absolute;
         bottom: -130px;
         right: -40px;
+
         width: 192px;
         height: 46px;
-        background-color: var(--color-primary);
         border-radius: 4px;
 
+        background-color: var(--color-primary);
         font-size: 16px;
         line-height: 24px;
         font-weight: 500;

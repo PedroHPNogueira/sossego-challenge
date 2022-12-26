@@ -1,27 +1,17 @@
-import { UserContext } from "../../contexts/UserContext"
-import {useContext} from "react"
 import { RegisterMain } from "./style"
+import { Outlet } from "react-router-dom";
 
 export const RegisterUser = () => {
 
-    const {x} = useContext(UserContext)
-    console.log(x)
-
-    /* const teste = () => {
-        const x = true
-        const y = false
-        const j = y? console.log("Oi") : x? console.log("chegou") : false
-    }
-
-    teste() */
-
     return (
         <RegisterMain>
-            <div>
-
-            </div>
-            <div>
-                
+            <div className="background">
+                <div className="sossegoDiv">
+                    <img src="https://uploads-ssl.webflow.com/5f7f921a3cde3a56d139f6ce/5fc52d636d3160ad82cce141_logo-horizontal-branco.svg" alt="" />
+                </div>
+                <div>
+                </div>
+               <Outlet/>
             </div>
         </RegisterMain>
     )

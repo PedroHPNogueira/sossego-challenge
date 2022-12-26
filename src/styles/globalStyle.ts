@@ -44,13 +44,13 @@ html, body, div, span, applet, object, iframe,
     }
 
     :root {
-        --color-primary: #ff577f;
+        --color-primary: #5357B1;
         --color-primary-negative: #59323F;
         --grey-4: #121214;
         --grey-3: #212529;
         --grey-2: #343b41;
-        --grey-1: #868e96;
-        --grey-0: #f8f9fa;
+        --grey-1: #8C98A9;
+        --grey-0: #F0F2F6;
         --white: #fff;
         --black: #000;
         --secess: #3fe864;
