@@ -11,12 +11,15 @@ interface IUserContext{
     submitAddressInfo: (data:IAddress) => void,
     submitMoreAbout: (data: IMoreAbout) => void,
     startNewRegister: () => void,
+    setUserInCreation: React.Dispatch<React.SetStateAction<IUserInCreation>>,
     userInCreation: IUserInCreation,
+    usersCreated: IUserInCreation[]
 }
 
 export const UserContext = createContext<IUserContext>({} as IUserContext);
 
 const UserProvider = ({ children }: IUserContextProps) => {
+    const [usersCreated, setUsersCreated] = useState<IUserInCreation[]>([])
     const [userInCreation, setUserInCreation] = useState<IUserInCreation>({})
 
     const navigate = useNavigate()
@@ -36,15 +39,17 @@ const UserProvider = ({ children }: IUserContextProps) => {
         setUserInCreation(user)
 
         navigate("/register/about")
-        console.log(user)
     }
 
     const submitMoreAbout = (data: IMoreAbout) => {
         let user = {...userInCreation, moreAbout: data.MoreAbout}
         setUserInCreation(user)
 
+        const users = usersCreated
+        users.unshift(user)
+        setUsersCreated(users)
+        console.log(usersCreated[0])
         navigate("/register/created")
-        console.log(user)
     }
 
     const startNewRegister =() => {
@@ -54,7 +59,7 @@ const UserProvider = ({ children }: IUserContextProps) => {
     }
 
     return (
-        <UserContext.Provider value={{ submitUserInfo, submitAddressInfo, submitMoreAbout, startNewRegister, userInCreation}}>
+        <UserContext.Provider value={{ submitUserInfo, submitAddressInfo, submitMoreAbout, startNewRegister, userInCreation, usersCreated, setUserInCreation}}>
             {children}
         </UserContext.Provider>
     )

@@ -7,6 +7,8 @@ import { moreAboutSchema } from "../../../schemas/moreAbout.schema";
 import { IMoreAbout } from "../../../interfaces/userInterfaces";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../../styles/button";
+import { motion as m } from "framer-motion";
+import { cardsAnimations } from "../../../animation/registerAnimations";
 
 import { BsPersonFill as Person } from "react-icons/bs";
 import { RiHome4Fill as Home } from "react-icons/ri";
@@ -35,31 +37,35 @@ export const MoreAbout = () => {
     })
 
     return (
-        <MoreAboutDiv>
-            <h1>Criação de usuário</h1>
-      <div className="overview">
-        <div className="personSVG">
-          <Person />
+      <MoreAboutDiv>
+        <h1>Criação de usuário</h1>
+        <div className="overview">
+          <div className="personSVG">
+            <Person />
+          </div>
+          <p>Identificação do usuário</p>
+          <div className="homeSVG">
+            <Home />
+          </div>
+          <p>Endereço do usuário</p>
+          <div>
+            <Document />
+          </div>
+          <p>Sobre você</p>
         </div>
-        <p>Identificação do usuário</p>
-        <div className="homeSVG">
-          <Home />
-        </div>
-        <p>Endereço do usuário</p>
-        <div>
-          <Document />
-        </div>
-        <p>Sobre você</p>
-      </div>
-      <form onSubmit={handleSubmit(submitMoreAbout)}>
-        <div className="inputDiv">
+        <m.form 
+        variants={cardsAnimations} 
+        animate="enter"
+        exit="exit"
+        onSubmit={handleSubmit(submitMoreAbout)}>
+          <div className="inputDiv">
             <label>Nos conte mais sobre você</label>
             <textarea {...register("MoreAbout")}/>
             <p>{errors.MoreAbout?.message}</p>
-        </div>
-        <Button variant="secondary" className="returnButton" onClick={() => {navigate("/register/address")}}>Anterior</Button>
-        <Button variant="primary" className="nextButton" type="submit">Próximo passo</Button>
-      </form>
-        </MoreAboutDiv>
+          </div>
+          <Button type="button" variant="secondary" className="returnButton" onClick={() => {navigate("/register/address")}}>Anterior</Button>
+          <Button variant="primary" className="nextButton" type="submit">Próximo passo</Button>
+        </m.form>
+      </MoreAboutDiv>
     )
 }

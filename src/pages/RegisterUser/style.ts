@@ -8,6 +8,7 @@ export const RegisterMain = styled.main`
         flex-direction: row;
         height: 100vh;
         width: 100vw;
+        overflow: hidden;
     }
 
     .background .sossegoDiv {

@@ -3,38 +3,46 @@ import { UserContext } from "../../contexts/UserContext"
 import { CreatedUserCardDiv } from "./style"
 import { Button } from "../../styles/button"
 import { useNavigate } from "react-router-dom"
+import { motion as m } from "framer-motion"
+import { cardsAnimations } from "../../animation/registerAnimations"
 
 export const CreatedUserCard = () => {
     const navigate = useNavigate()
 
-    const {  startNewRegister, userInCreation } = useContext(UserContext)
+    const { setUserInCreation ,startNewRegister, usersCreated } = useContext(UserContext)
 
     useEffect(() => {
-        if(!userInCreation.moreAbout){
+        setUserInCreation({})
+        if(!usersCreated[0].moreAbout){
             navigate("/register/about")
         }
     })
 
     return (
         <CreatedUserCardDiv>
-            <h1>Usuário criado!</h1>
-            <span>Nome</span>
-            <p>{userInCreation.name}</p>
-            <span>Email</span>
-            <p className="email">{userInCreation.email}</p>
-            <div>
+            <m.div
+            variants={cardsAnimations} 
+            animate="enter"
+            exit="exit">
+                <h1>Usuário criado!</h1>
+                <span>Nome</span>
+                <p>{usersCreated[0].name}</p>
+                <span>Email</span>
+                <p className="email">{usersCreated[0].email}</p>
                 <div>
-                    <span>Rua</span>
-                    <p>{userInCreation.address?.street}</p>
+                    <div>
+                        <span>Rua</span>
+                        <p>{usersCreated[0].address?.street}</p>
+                    </div>
+                    <div>
+                        <span>Número</span>
+                        <p>{usersCreated[0].address?.number}</p>
+                    </div>
                 </div>
-                <div>
-                    <span>Número</span>
-                    <p>{userInCreation.address?.number}</p>
-                </div>
-            </div>
-            <span>CEP</span>
-            <p>{userInCreation.address?.cep}</p>
-            <Button onClick={() => {startNewRegister()}} variant="primary">Novo usuário</Button>
+                <span>CEP</span>
+                <p>{usersCreated[0].address?.cep}</p>
+                <Button onClick={() => {startNewRegister()}} variant="primary">Novo usuário</Button>
+            </m.div>
         </CreatedUserCardDiv>
     )
 }

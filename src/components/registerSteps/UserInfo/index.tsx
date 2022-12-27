@@ -4,6 +4,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { userInfoSchema } from "../../../schemas/userInfo.schema";
 import { IUserInfo } from "../../../interfaces/userInterfaces";
+import { Button } from "../../../styles/button";
+import { motion as m } from "framer-motion"
+import { cardsAnimations } from "../../../animation/registerAnimations";
 
 import { BsPersonFill as Person } from "react-icons/bs";
 import { RiHome4Fill as Home } from "react-icons/ri";
@@ -11,6 +14,7 @@ import { CgFileDocument as Document } from "react-icons/cg";
 import { UserContext } from "../../../contexts/UserContext";
 
 export const UserInfo = () => {
+
   const { submitUserInfo, userInCreation } = useContext(UserContext);
 
   const {
@@ -45,7 +49,11 @@ export const UserInfo = () => {
         </div>
         <p>Sobre você</p>
       </div>
-      <form onSubmit={handleSubmit(submitUserInfo)}>
+      <m.form
+      variants={cardsAnimations} 
+      animate="enter"
+      exit="exit"
+      onSubmit={handleSubmit(submitUserInfo)}>
         <div className="inputDiv">
           <label>Nome</label>
           <input type="text" {...register("name")} />
@@ -75,8 +83,8 @@ export const UserInfo = () => {
             <p>{errors.birthDate?.message}</p>
           </div>
         </div>
-        <button type="submit">Próximo passo</button>
-      </form>
+        <Button variant="primary" type="submit">Próximo passo</Button>
+      </m.form>
     </UserInfoDiv>
   );
 };

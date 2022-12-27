@@ -6,6 +6,8 @@ import { addressInfoSchema } from "../../../schemas/addressInfo.schema";
 import { IAddress } from "../../../interfaces/userInterfaces";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../../styles/button";
+import { motion as m } from "framer-motion"
+import { cardsAnimations } from "../../../animation/registerAnimations";
 
 import { BsPersonFill as Person } from "react-icons/bs";
 import { RiHome4Fill as Home } from "react-icons/ri";
@@ -56,7 +58,11 @@ export const AddressInfo = () => {
         </div>
         <p>Sobre você</p>
       </div>
-      <form onSubmit={handleSubmit(submitAddressInfo)}>
+      <m.form 
+      variants={cardsAnimations} 
+      animate="enter"
+      exit="exit"
+      onSubmit={handleSubmit(submitAddressInfo)}>
         <div className="twoInputsDiv">
           <div className="inputDiv">
             <label>CEP</label>
@@ -95,7 +101,7 @@ export const AddressInfo = () => {
         </div>
         <Button className="returnButton" onClick={() => {navigate("/register/identify")}} variant="secondary">Anterior</Button>
         <Button type="submit" className="nextButton" variant="primary">Próximo passe</Button>
-      </form>
+      </m.form>
     </AddressInfoDiv>
   );
 };
