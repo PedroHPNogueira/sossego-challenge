@@ -8,15 +8,17 @@ export const CreatedUserCardDiv = styled.div`
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    display: flex;
-    flex-direction: column;
-
-    width: 465px;
-    height: 636px;
-    padding: 48px 81px 0 59px;
-
-    background-color: white;
-    box-shadow: 0.3px 0.3px 8px #ddd, -0.3px -0.3px 8px #ddd;
+    
+    > div{
+        display: flex;
+        flex-direction: column;
+        width: 465px;
+        height: 636px;
+        padding: 48px 81px 0 59px;
+    
+        background-color: white;
+        box-shadow: 0.3px 0.3px 8px #ddd, -0.3px -0.3px 8px #ddd;
+    }
 
     h1{
         margin: 0 auto;
@@ -46,7 +48,7 @@ export const CreatedUserCardDiv = styled.div`
         border-bottom: 1px solid var(--grey-0);
     }
 
-    > div{
+    > div > div{
         display: flex;
         flex-direction: row;
         justify-content: space-between;

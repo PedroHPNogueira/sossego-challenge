@@ -12,9 +12,9 @@ export const AddressInfoDiv = styled.div`
     width: 864px;
     height: 636px;
     padding: 48px 71px 0 51px;
-
+    
     background-color: white;
-    box-shadow: 0.3px 0.3px 8px #ddd, -0.3px -0.3px 8px #ddd;
+     box-shadow: 0.3px 0.3px 8px #ddd, -0.3px -0.3px 8px #ddd;
 
     h1{
         font-size: 36px;

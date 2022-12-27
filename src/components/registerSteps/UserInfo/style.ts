@@ -12,7 +12,7 @@ export const UserInfoDiv = styled.main`
     width: 864px;
     height: 636px;
     padding: 48px 71px 0 51px;
-
+    
     background-color: white;
     box-shadow: 0.3px 0.3px 8px #ddd, -0.3px -0.3px 8px #ddd;
 
@@ -110,16 +110,6 @@ export const UserInfoDiv = styled.main`
         position: absolute;
         bottom: -130px;
         right: -40px;
-
-        width: 192px;
-        height: 46px;
-        border-radius: 4px;
-
-        background-color: var(--color-primary);
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 500;
-        color: white;
     }
 
     button{
