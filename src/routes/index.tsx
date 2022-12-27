@@ -1,8 +1,9 @@
 import { Routes, Route, Navigate } from "react-router-dom"
-import { Component } from "../components/registerSteps"
 import { RegisterUser } from "../pages/RegisterUser"
 import { UserInfo } from "../components/registerSteps/UserInfo"
 import { AddressInfo } from "../components/registerSteps/AddressInfo"
+import { MoreAbout } from "../components/registerSteps/MoreAbout"
+import { CreatedUserCard } from "../components/UserCreatedModal"
 
 function RoutesMain(){
 
@@ -12,7 +13,8 @@ function RoutesMain(){
             <Route path="/register" element={<RegisterUser/>}>
                 <Route path="identify" element={<UserInfo/>}/>
                 <Route path="address" element={<AddressInfo/>}/>
-                <Route path="identify" element={<Component/>}/>
+                <Route path="about" element={<MoreAbout/>}/>
+                <Route path="created" element={<CreatedUserCard/>}/>
             </Route>
         </Routes>
     )

@@ -121,4 +121,8 @@ export const UserInfoDiv = styled.main`
         font-weight: 500;
         color: white;
     }
+
+    button{
+        cursor: pointer;
+    }
 `

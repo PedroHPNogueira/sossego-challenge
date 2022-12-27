@@ -1,5 +1,5 @@
 import { createContext, useState  } from "react"
-import { IUserInfo, IUserInCreation, IAddress } from "../interfaces/userInterfaces"
+import { IUserInfo, IUserInCreation, IAddress, IMoreAbout } from "../interfaces/userInterfaces"
 import { useNavigate } from "react-router"
 
 interface IUserContextProps{
@@ -9,6 +9,7 @@ interface IUserContextProps{
 interface IUserContext{
     submitUserInfo: (data: IUserInfo) => void,
     submitAddressInfo: (data:IAddress) => void,
+    submitMoreAbout: (data: IMoreAbout) => void,
     userInCreation: IUserInCreation,
 }
 
@@ -34,11 +35,20 @@ const UserProvider = ({ children }: IUserContextProps) => {
         let user = {...userInCreation, address: data}
         serUserInCreation(user)
 
+        navigate("/register/about")
+        console.log(user)
+    }
+
+    const submitMoreAbout = (data: IMoreAbout) => {
+        let user = {...userInCreation, moreAbout: data.MoreAbout}
+        serUserInCreation(user)
+
+        navigate("/register/created")
         console.log(user)
     }
 
     return (
-        <UserContext.Provider value={{ submitUserInfo, submitAddressInfo, userInCreation}}>
+        <UserContext.Provider value={{ submitUserInfo, submitAddressInfo, submitMoreAbout, userInCreation}}>
             {children}
         </UserContext.Provider>
     )

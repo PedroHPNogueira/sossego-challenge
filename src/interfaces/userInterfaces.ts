@@ -1,3 +1,4 @@
+import { MoreAbout } from './../components/registerSteps/MoreAbout/index';
 export interface IUser{
     name: string,
     email: string,
@@ -31,4 +32,8 @@ export interface IUserInfo{
     password: string,
     confirmPassword?: string,
     birthDate: Date
+}
+
+export interface IMoreAbout{
+    MoreAbout: string
 }
