@@ -1,5 +1,5 @@
 import { createContext, useState  } from "react"
-import { IUserInfo, IUserInCreation, IAddress, IMoreAbout, IUser } from "../interfaces/userInterfaces"
+import { IUserInfo, IUserInCreation, IAddress, IMoreAbout } from "../interfaces/userInterfaces"
 import { useNavigate } from "react-router"
 
 interface IUserContextProps{
@@ -17,7 +17,6 @@ interface IUserContext{
 export const UserContext = createContext<IUserContext>({} as IUserContext);
 
 const UserProvider = ({ children }: IUserContextProps) => {
-    const [usersCreated, setUsersCreated] = useState<IUser[]>([])
     const [userInCreation, setUserInCreation] = useState<IUserInCreation>({})
 
     const navigate = useNavigate()

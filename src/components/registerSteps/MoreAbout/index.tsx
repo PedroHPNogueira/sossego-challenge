@@ -32,7 +32,7 @@ export const MoreAbout = () => {
         if(!userInCreation.address){
             navigate("/register/address")
         }
-    },[])
+    })
 
     return (
         <MoreAboutDiv>

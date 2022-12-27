@@ -13,7 +13,7 @@ export const CreatedUserCard = () => {
         if(!userInCreation.moreAbout){
             navigate("/register/about")
         }
-    },[])
+    })
 
     return (
         <CreatedUserCardDiv>

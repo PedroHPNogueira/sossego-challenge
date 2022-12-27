@@ -37,7 +37,7 @@ export const AddressInfo = () => {
     if(!userInCreation.name || !userInCreation.email || !userInCreation.password || !userInCreation.birthDate){
       navigate("/register/identify")
     }
-  },[])
+  })
 
   return (
     <AddressInfoDiv>
