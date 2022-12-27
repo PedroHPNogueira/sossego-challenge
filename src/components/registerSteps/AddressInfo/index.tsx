@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AddressInfoDiv } from "./style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -32,6 +32,12 @@ export const AddressInfo = () => {
       referenceLocation: userInCreation.address?.referenceLocation,
     },
   });
+
+  useEffect(() => {
+    if(!userInCreation.name || !userInCreation.email || !userInCreation.password || !userInCreation.birthDate){
+      navigate("/register/identify")
+    }
+  },[])
 
   return (
     <AddressInfoDiv>

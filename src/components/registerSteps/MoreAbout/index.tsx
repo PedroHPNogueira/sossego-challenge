@@ -1,5 +1,5 @@
 import { MoreAboutDiv } from "./style"
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../../contexts/UserContext";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -15,18 +15,24 @@ import { CgFileDocument as Document } from "react-icons/cg";
 export const MoreAbout = () => {
     const navigate = useNavigate()
 
-  const { submitMoreAbout, userInCreation } = useContext(UserContext);
+    const { submitMoreAbout, userInCreation } = useContext(UserContext);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<IMoreAbout>({
-    resolver: yupResolver(moreAboutSchema),
-    defaultValues: {
-        MoreAbout: userInCreation.moreAbout
-    },
-  });
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<IMoreAbout>({
+        resolver: yupResolver(moreAboutSchema),
+        defaultValues: {
+            MoreAbout: userInCreation.moreAbout
+        },
+    });
+
+    useEffect(() => {
+        if(!userInCreation.address){
+            navigate("/register/address")
+        }
+    },[])
 
     return (
         <MoreAboutDiv>

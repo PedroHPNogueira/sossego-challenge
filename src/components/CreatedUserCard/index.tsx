@@ -1,11 +1,19 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { UserContext } from "../../contexts/UserContext"
 import { CreatedUserCardDiv } from "./style"
 import { Button } from "../../styles/button"
+import { useNavigate } from "react-router-dom"
 
 export const CreatedUserCard = () => {
+    const navigate = useNavigate()
 
     const {  startNewRegister, userInCreation } = useContext(UserContext)
+
+    useEffect(() => {
+        if(!userInCreation.moreAbout){
+            navigate("/register/about")
+        }
+    },[])
 
     return (
         <CreatedUserCardDiv>
