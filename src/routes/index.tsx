@@ -3,7 +3,7 @@ import { RegisterUser } from "../pages/RegisterUser"
 import { UserInfo } from "../components/registerSteps/UserInfo"
 import { AddressInfo } from "../components/registerSteps/AddressInfo"
 import { MoreAbout } from "../components/registerSteps/MoreAbout"
-import { CreatedUserCard } from "../components/UserCreatedModal"
+import { CreatedUserCard } from "../components/CreatedUserCard"
 
 function RoutesMain(){
 
