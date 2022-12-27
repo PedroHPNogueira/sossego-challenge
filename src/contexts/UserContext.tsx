@@ -1,5 +1,5 @@
 import { createContext, useState  } from "react"
-import { IUserInfo, IUserInCreation, IAddress, IMoreAbout, IUser } from "../interfaces/userInterfaces"
+import { IUserInfo, IUserInCreation, IAddress, IMoreAbout } from "../interfaces/userInterfaces"
 import { useNavigate } from "react-router"
 
 interface IUserContextProps{
