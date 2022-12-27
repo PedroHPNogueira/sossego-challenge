@@ -1,7 +1,6 @@
-import { InputDiv } from './../../Input/style';
 import styled from "styled-components";
 
-export const AddressInfoDiv = styled.main`
+export const AddressInfoDiv = styled.div`
 
     box-sizing: border-box;
     position: absolute;
