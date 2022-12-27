@@ -135,35 +135,11 @@ export const AddressInfoDiv = styled.div`
         position: absolute;
         bottom: -130px;
         right: -40px;
-
-        width: 192px;
-        height: 46px;
-        border-radius: 4px;
-
-        background-color: var(--color-primary);
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 500;
-        color: white;
     }
 
     .returnButton{
         position: absolute;
         bottom: -130px;
         right: 172px;
-
-        width: 192px;
-        height: 46px;
-        border-radius: 4px;
-
-        background-color: #8C98A9;
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 500;
-        color: white;
-    }
-
-    button:hover{
-        cursor: pointer;
     }
 `

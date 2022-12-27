@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { addressInfoSchema } from "../../../schemas/addressInfo.schema";
 import { IAddress } from "../../../interfaces/userInterfaces";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../../../styles/button";
 
 import { BsPersonFill as Person } from "react-icons/bs";
 import { RiHome4Fill as Home } from "react-icons/ri";
@@ -86,8 +87,8 @@ export const AddressInfo = () => {
           <input type="text" {...register("referenceLocation")} />
           <p>{errors.referenceLocation?.message}</p>
         </div>
-        <button className="returnButton" onClick={() => {navigate("/register/identify")}}>Anterior</button>
-        <button className="nextButton" type="submit">Próximo passo</button>
+        <Button className="returnButton" onClick={() => {navigate("/register/identify")}} variant="secondary">Anterior</Button>
+        <Button type="submit" className="nextButton" variant="primary">Próximo passe</Button>
       </form>
     </AddressInfoDiv>
   );

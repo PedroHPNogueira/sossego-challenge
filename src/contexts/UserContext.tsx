@@ -1,5 +1,5 @@
 import { createContext, useState  } from "react"
-import { IUserInfo, IUserInCreation, IAddress, IMoreAbout } from "../interfaces/userInterfaces"
+import { IUserInfo, IUserInCreation, IAddress, IMoreAbout, IUser } from "../interfaces/userInterfaces"
 import { useNavigate } from "react-router"
 
 interface IUserContextProps{
@@ -10,14 +10,15 @@ interface IUserContext{
     submitUserInfo: (data: IUserInfo) => void,
     submitAddressInfo: (data:IAddress) => void,
     submitMoreAbout: (data: IMoreAbout) => void,
+    startNewRegister: () => void,
     userInCreation: IUserInCreation,
 }
 
 export const UserContext = createContext<IUserContext>({} as IUserContext);
 
 const UserProvider = ({ children }: IUserContextProps) => {
-    const [usersCreated, setUsersCreated] = useState([])
-    const [userInCreation, serUserInCreation] = useState<IUserInCreation>({})
+    const [usersCreated, setUsersCreated] = useState<IUser[]>([])
+    const [userInCreation, setUserInCreation] = useState<IUserInCreation>({})
 
     const navigate = useNavigate()
 
@@ -26,14 +27,14 @@ const UserProvider = ({ children }: IUserContextProps) => {
        
         let user = userInCreation
         user = {...userInCreation,...data}
-        serUserInCreation(user)
+        setUserInCreation(user)
 
         navigate("/register/address")
     }
 
     const submitAddressInfo = (data: IAddress) => {
         let user = {...userInCreation, address: data}
-        serUserInCreation(user)
+        setUserInCreation(user)
 
         navigate("/register/about")
         console.log(user)
@@ -41,14 +42,20 @@ const UserProvider = ({ children }: IUserContextProps) => {
 
     const submitMoreAbout = (data: IMoreAbout) => {
         let user = {...userInCreation, moreAbout: data.MoreAbout}
-        serUserInCreation(user)
+        setUserInCreation(user)
 
         navigate("/register/created")
         console.log(user)
     }
 
+    const startNewRegister =() => {
+        setUserInCreation({})
+
+        navigate("/register/identify")
+    }
+
     return (
-        <UserContext.Provider value={{ submitUserInfo, submitAddressInfo, submitMoreAbout, userInCreation}}>
+        <UserContext.Provider value={{ submitUserInfo, submitAddressInfo, submitMoreAbout, startNewRegister, userInCreation}}>
             {children}
         </UserContext.Provider>
     )

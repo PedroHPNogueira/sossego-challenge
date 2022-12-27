@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { moreAboutSchema } from "../../../schemas/moreAbout.schema";
 import { IMoreAbout } from "../../../interfaces/userInterfaces";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../../../styles/button";
 
 import { BsPersonFill as Person } from "react-icons/bs";
 import { RiHome4Fill as Home } from "react-icons/ri";
@@ -50,8 +51,8 @@ export const MoreAbout = () => {
             <textarea {...register("MoreAbout")}/>
             <p>{errors.MoreAbout?.message}</p>
         </div>
-        <button className="returnButton" onClick={() => {navigate("/register/address")}}>Anterior</button>
-        <button className="nextButton" type="submit">Próximo passo</button>
+        <Button variant="secondary" className="returnButton" onClick={() => {navigate("/register/address")}}>Anterior</Button>
+        <Button variant="primary" className="nextButton" type="submit">Próximo passo</Button>
       </form>
         </MoreAboutDiv>
     )
