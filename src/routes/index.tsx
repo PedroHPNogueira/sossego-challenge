@@ -3,7 +3,7 @@ import { RegisterUser } from "../pages/RegisterUser"
 import { UserInfo } from "../components/registerSteps/UserInfo"
 import { AddressInfo } from "../components/registerSteps/AddressInfo"
 import { MoreAbout } from "../components/registerSteps/MoreAbout"
-import { CreatedUserCard } from "../components/CreatedUserCard"
+import { CreatedUserPage } from "../pages/CreatedUserPage"
 
 import { AnimatePresence } from "framer-motion";
 
@@ -18,8 +18,8 @@ function RoutesMain(){
                     <Route path="identify" element={<UserInfo/>}/>
                     <Route path="address" element={<AddressInfo/>}/>
                     <Route path="about" element={<MoreAbout/>}/>
-                    <Route path="created" element={<CreatedUserCard/>}/>
                 </Route>
+                <Route path="created" element={<CreatedUserPage/>}/>
             </Routes>
         </AnimatePresence>
     )

@@ -38,21 +38,6 @@ export const MoreAbout = () => {
 
     return (
       <MoreAboutDiv>
-        <h1>Criação de usuário</h1>
-        <div className="overview">
-          <div className="personSVG">
-            <Person />
-          </div>
-          <p>Identificação do usuário</p>
-          <div className="homeSVG">
-            <Home />
-          </div>
-          <p>Endereço do usuário</p>
-          <div>
-            <Document />
-          </div>
-          <p>Sobre você</p>
-        </div>
         <m.form 
         variants={cardsAnimations} 
         animate="enter"

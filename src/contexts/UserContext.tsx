@@ -19,7 +19,7 @@ interface IUserContext{
 export const UserContext = createContext<IUserContext>({} as IUserContext);
 
 const UserProvider = ({ children }: IUserContextProps) => {
-    const [usersCreated, setUsersCreated] = useState<IUserInCreation[]>([])
+    const [usersCreated, setUsersCreated] = useState<IUserInCreation[]>([{}])
     const [userInCreation, setUserInCreation] = useState<IUserInCreation>({})
 
     const navigate = useNavigate()
@@ -49,7 +49,7 @@ const UserProvider = ({ children }: IUserContextProps) => {
         users.unshift(user)
         setUsersCreated(users)
         console.log(usersCreated[0])
-        navigate("/register/created")
+        navigate("/created")
     }
 
     const startNewRegister =() => {

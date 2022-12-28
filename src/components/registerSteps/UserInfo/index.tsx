@@ -7,10 +7,6 @@ import { IUserInfo } from "../../../interfaces/userInterfaces";
 import { Button } from "../../../styles/button";
 import { motion as m } from "framer-motion"
 import { cardsAnimations } from "../../../animation/registerAnimations";
-
-import { BsPersonFill as Person } from "react-icons/bs";
-import { RiHome4Fill as Home } from "react-icons/ri";
-import { CgFileDocument as Document } from "react-icons/cg";
 import { UserContext } from "../../../contexts/UserContext";
 
 export const UserInfo = () => {
@@ -34,21 +30,6 @@ export const UserInfo = () => {
 
   return (
     <UserInfoDiv>
-      <h1>Criação de usuário</h1>
-      <div className="overview">
-        <div className="personSVG">
-          <Person />
-        </div>
-        <p>Identificação do usuário</p>
-        <div>
-          <Home />
-        </div>
-        <p>Endereço do usuário</p>
-        <div>
-          <Document />
-        </div>
-        <p>Sobre você</p>
-      </div>
       <m.form
       variants={cardsAnimations} 
       animate="enter"
