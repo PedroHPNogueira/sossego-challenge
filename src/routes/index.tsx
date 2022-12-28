@@ -5,7 +5,7 @@ import { AddressInfo } from "../components/registerSteps/AddressInfo"
 import { MoreAbout } from "../components/registerSteps/MoreAbout"
 import { CreatedUserPage } from "../pages/CreatedUserPage"
 
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion"
 
 function RoutesMain(){
     const location = useLocation()

@@ -1,17 +1,17 @@
-import { useContext } from "react";
-import { UserInfoDiv } from "./style";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { userInfoSchema } from "../../../schemas/userInfo.schema";
-import { IUserInfo } from "../../../interfaces/userInterfaces";
-import { Button } from "../../../styles/button";
+import { useContext } from "react"
+import { UserInfoDiv } from "./style"
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
+import { userInfoSchema } from "../../../schemas/userInfo.schema"
+import { IUserInfo } from "../../../interfaces/userInterfaces"
+import { Button } from "../../../styles/button"
 import { motion as m } from "framer-motion"
-import { cardsAnimations } from "../../../animation/registerAnimations";
-import { UserContext } from "../../../contexts/UserContext";
+import { cardsAnimations } from "../../../animation/registerAnimations"
+import { UserContext } from "../../../contexts/UserContext"
 
 export const UserInfo = () => {
 
-  const { submitUserInfo, userInCreation } = useContext(UserContext);
+  const { submitUserInfo, userInCreation } = useContext(UserContext)
 
   const {
     register,

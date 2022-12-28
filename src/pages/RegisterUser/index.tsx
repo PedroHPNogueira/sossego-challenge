@@ -1,10 +1,10 @@
 import { RegisterMain } from "./style"
-import { Outlet, useLocation } from "react-router-dom";
-import { Background } from "../../components/Backgroud";
+import { Outlet, useLocation } from "react-router-dom"
+import { Background } from "../../components/Backgroud"
 
-import { BsPersonFill as Person } from "react-icons/bs";
-import { RiHome4Fill as Home } from "react-icons/ri";
-import { CgFileDocument as Document } from "react-icons/cg";
+import { BsPersonFill as Person } from "react-icons/bs"
+import { RiHome4Fill as Home } from "react-icons/ri"
+import { CgFileDocument as Document } from "react-icons/cg"
 import { useEffect } from "react";
 
 export const RegisterUser = () => {

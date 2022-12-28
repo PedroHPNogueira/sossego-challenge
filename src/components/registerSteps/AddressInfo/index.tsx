@@ -1,19 +1,19 @@
-import { useContext, useEffect } from "react";
-import { AddressInfoDiv } from "./style";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { addressInfoSchema } from "../../../schemas/addressInfo.schema";
-import { IAddress } from "../../../interfaces/userInterfaces";
-import { useNavigate } from "react-router-dom";
-import { Button } from "../../../styles/button";
+import { useContext, useEffect } from "react"
+import { AddressInfoDiv } from "./style"
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
+import { addressInfoSchema } from "../../../schemas/addressInfo.schema"
+import { IAddress } from "../../../interfaces/userInterfaces"
+import { useNavigate } from "react-router-dom"
+import { Button } from "../../../styles/button"
 import { motion as m } from "framer-motion"
-import { cardsAnimations } from "../../../animation/registerAnimations";
-import { UserContext } from "../../../contexts/UserContext";
+import { cardsAnimations } from "../../../animation/registerAnimations"
+import { UserContext } from "../../../contexts/UserContext"
 
 export const AddressInfo = () => {
   const navigate = useNavigate()
 
-  const { submitAddressInfo,userInCreation } = useContext(UserContext);
+  const { submitAddressInfo,userInCreation } = useContext(UserContext)
 
   const {
     register,

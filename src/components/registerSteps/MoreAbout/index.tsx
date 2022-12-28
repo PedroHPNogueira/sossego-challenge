@@ -1,19 +1,19 @@
 import { MoreAboutDiv } from "./style"
-import { useContext, useEffect } from "react";
-import { UserContext } from "../../../contexts/UserContext";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { moreAboutSchema } from "../../../schemas/moreAbout.schema";
-import { IMoreAbout } from "../../../interfaces/userInterfaces";
-import { useNavigate } from "react-router-dom";
-import { Button } from "../../../styles/button";
-import { motion as m } from "framer-motion";
-import { cardsAnimations } from "../../../animation/registerAnimations";
+import { useContext, useEffect } from "react"
+import { UserContext } from "../../../contexts/UserContext"
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
+import { moreAboutSchema } from "../../../schemas/moreAbout.schema"
+import { IMoreAbout } from "../../../interfaces/userInterfaces"
+import { useNavigate } from "react-router-dom"
+import { Button } from "../../../styles/button"
+import { motion as m } from "framer-motion"
+import { cardsAnimations } from "../../../animation/registerAnimations"
 
 export const MoreAbout = () => {
     const navigate = useNavigate()
 
-    const { submitMoreAbout, userInCreation } = useContext(UserContext);
+    const { submitMoreAbout, userInCreation } = useContext(UserContext)
 
     const {
         register,
