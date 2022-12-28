@@ -10,10 +10,6 @@ import { Button } from "../../../styles/button";
 import { motion as m } from "framer-motion";
 import { cardsAnimations } from "../../../animation/registerAnimations";
 
-import { BsPersonFill as Person } from "react-icons/bs";
-import { RiHome4Fill as Home } from "react-icons/ri";
-import { CgFileDocument as Document } from "react-icons/cg";
-
 export const MoreAbout = () => {
     const navigate = useNavigate()
 
