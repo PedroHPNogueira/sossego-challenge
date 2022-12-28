@@ -8,10 +8,6 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../../../styles/button";
 import { motion as m } from "framer-motion"
 import { cardsAnimations } from "../../../animation/registerAnimations";
-
-import { BsPersonFill as Person } from "react-icons/bs";
-import { RiHome4Fill as Home } from "react-icons/ri";
-import { CgFileDocument as Document } from "react-icons/cg";
 import { UserContext } from "../../../contexts/UserContext";
 
 export const AddressInfo = () => {
@@ -43,21 +39,6 @@ export const AddressInfo = () => {
 
   return (
     <AddressInfoDiv>
-      <h1>Criação de usuário</h1>
-      <div className="overview">
-        <div className="personSVG">
-          <Person />
-        </div>
-        <p>Identificação do usuário</p>
-        <div className="homeSVG">
-          <Home />
-        </div>
-        <p>Endereço do usuário</p>
-        <div>
-          <Document />
-        </div>
-        <p>Sobre você</p>
-      </div>
       <m.form 
       variants={cardsAnimations} 
       animate="enter"
@@ -99,7 +80,7 @@ export const AddressInfo = () => {
           <input type="text" {...register("referenceLocation")} />
           <p>{errors.referenceLocation?.message}</p>
         </div>
-        <Button className="returnButton" onClick={() => {navigate("/register/identify")}} variant="secondary">Anterior</Button>
+        <Button type="button" className="returnButton" onClick={() => {navigate("/register/identify")}} variant="secondary">Anterior</Button>
         <Button type="submit" className="nextButton" variant="primary">Próximo passe</Button>
       </m.form>
     </AddressInfoDiv>

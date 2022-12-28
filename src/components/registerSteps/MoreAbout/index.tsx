@@ -10,10 +10,6 @@ import { Button } from "../../../styles/button";
 import { motion as m } from "framer-motion";
 import { cardsAnimations } from "../../../animation/registerAnimations";
 
-import { BsPersonFill as Person } from "react-icons/bs";
-import { RiHome4Fill as Home } from "react-icons/ri";
-import { CgFileDocument as Document } from "react-icons/cg";
-
 export const MoreAbout = () => {
     const navigate = useNavigate()
 
@@ -38,21 +34,6 @@ export const MoreAbout = () => {
 
     return (
       <MoreAboutDiv>
-        <h1>Criação de usuário</h1>
-        <div className="overview">
-          <div className="personSVG">
-            <Person />
-          </div>
-          <p>Identificação do usuário</p>
-          <div className="homeSVG">
-            <Home />
-          </div>
-          <p>Endereço do usuário</p>
-          <div>
-            <Document />
-          </div>
-          <p>Sobre você</p>
-        </div>
         <m.form 
         variants={cardsAnimations} 
         animate="enter"

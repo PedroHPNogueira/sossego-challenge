@@ -2,68 +2,6 @@ import styled from "styled-components";
 
 export const MoreAboutDiv = styled.div`
 
-    box-sizing: border-box;
-    position: absolute;
-    z-index: 1;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-
-    width: 864px;
-    height: 636px;
-    padding: 48px 71px 0 51px;
-    
-    background-color: white;
-    box-shadow: 0.3px 0.3px 8px #ddd, -0.3px -0.3px 8px #ddd;
-
-    h1{
-        font-size: 36px;
-        font-weight: 500;
-        line-height: 48px;
-    }
-
-    .overview{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 30px;
-
-        margin-top: 40px;
-        margin-bottom: 40px;
-    }
-
-    .overview div {
-        display: flex;
-
-        height: 44px;
-        width: 44px;
-        border-radius: 50%;
-
-        background-color: var(--grey-0);
-    }
-
-    .overview div svg{
-        height: 19px;
-        width: 19px;
-        margin: auto;
-
-        color: var(--color-primary);
-    }
-
-    .overview p{
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 24px;
-    }
-
-    .overview .personSVG svg{
-        color: #00AE63;
-    }
-
-    .overview .homeSVG svg{
-        color: #00AE63;
-    }
-
     form {
         position: relative;
         display: flex;
@@ -116,5 +54,110 @@ export const MoreAboutDiv = styled.div`
         position: absolute;
         bottom: -130px;
         right: 172px;
+    }
+
+    @media (max-width: 1440px){
+
+        form {
+        gap: 20px;
+        }
+
+        form .inputDiv textarea {
+            height: 178px;
+        }
+
+        form .inputDiv label {
+            font-size: 15px;
+            line-height: 22px;
+        }
+
+        form .inputDiv p {
+            font-size: 13px;
+        }
+
+        .nextButton{
+            position: absolute;
+            bottom: -115px;
+            right: -36px;
+        }
+
+        .returnButton{
+            position: absolute;
+            bottom: -115px;
+            right: 152px;
+        }
+    }
+
+    @media (max-width: 1250px){
+
+        form {
+            gap: 16px;
+        }
+
+        form .inputDiv textarea {
+            height: 143px;
+            border-radius: 3px;
+            padding: 7x;
+            font-size: 12px;
+        }
+
+        form .inputDiv label {
+            font-size: 12px;
+            line-height: 17px;
+            margin-bottom: 7px;
+        }
+
+        form .inputDiv p {
+            bottom: -12px;
+            left: 4px;
+            font-size: 10px;
+        }
+
+        .nextButton{
+            bottom: -92px;
+            right: -28px;
+        }
+
+        .returnButton{
+            bottom: -92px;
+            right: 122px;
+        }
+    }
+
+    @media (max-width: 1000px){
+
+        form {
+            gap: 12px;
+        }
+
+        form .inputDiv textarea {
+            height: 112px;
+            border-radius: 2px;
+            padding: 6px;
+
+            font-size: 9px;
+        }
+
+        form .inputDiv label {
+            font-size: 9px;
+            line-height: 14px;
+            margin-bottom: 6px;
+        }
+
+        form .inputDiv p {
+            bottom: -9px;
+            left: 3px;
+            font-size: 8px;
+        }
+
+        .nextButton{
+            bottom: -72px;
+            right: -22px;
+        }
+
+        .returnButton{
+            bottom: -72px;
+            right: 95px;
+        }
     }
 `

@@ -2,49 +2,30 @@ import styled from "styled-components";
 
 export const RegisterMain = styled.main`
 
-    .background{
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        height: 100vh;
-        width: 100vw;
-        overflow: hidden;
-    }
-
-    .background .sossegoDiv {
-        display: flex;
-        width: 52%;
-        background-color: var(--color-primary);
-    }
-
-    .background .sossegoDiv > img {
-        width: 70%;
-        opacity: 0.8;
-
-        margin: auto;
-    }
-
-    .step1{
+    .formContainer{
+        box-sizing: border-box;
         position: absolute;
         z-index: 1;
         left: 50%;
         top: 50%;
         transform: translate(-50%,-50%);
+    
         width: 864px;
         height: 636px;
         padding: 48px 71px 0 51px;
-
+        
         background-color: white;
-        box-shadow: 0.3px 0.3px 8px #ddd, -0.3px -0.3px 8px #ddd;
+         box-shadow: 0.3px 0.3px 8px #ddd, -0.3px -0.3px 8px #ddd;
     }
 
-    .step1 h1{
+
+    .formContainer h1{
         font-size: 36px;
         font-weight: 500;
         line-height: 48px;
     }
 
-    .step1 .steps{
+    .formContainer .overview{
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -54,91 +35,146 @@ export const RegisterMain = styled.main`
         margin-bottom: 40px;
     }
 
-    .step1 .steps div {
+    .formContainer .overview div {
         display: flex;
 
         height: 44px;
         width: 44px;
         border-radius: 50%;
+
         background-color: var(--grey-0);
     }
 
-    .step1 .steps div svg{
-        height: 19px;
-        width: 19px;
-        color: var(--grey-1);
-        margin: auto;
-    }
-
-    .step1 .steps p{
+    .formContainer .overview p{
         font-weight: 500;
         font-size: 16px;
         line-height: 24px;
     }
 
-    .step1 .steps .personSVG svg{
+    .formContainer .overview div svg{
+        height: 19px;
+        width: 19px;
+        margin: auto;
+
+        color: var(--grey-1);
+        transition: 0.5s;
+    }
+
+    .formContainer .overview .completed svg{
+        color: #00AE63;
+    }
+
+    .formContainer .overview .inProgress svg{
         color: var(--color-primary);
     }
 
-    .step1 form {
-        position: relative;
-        display: flex;
-        flex-direction: column;
+    @media (max-width: 1400px){
 
-        gap: 22px;
+        .formContainer{
+            width: 768px;
+            height: 565px;
+            padding: 42px 63px 0 45px;
+        }
+    
+        .formContainer h1{
+            font-size: 32px;
+            line-height: 42px;
+        }
+    
+        .formContainer .overview{
+            gap: 27px;
+    
+            margin-top: 35px;
+            margin-bottom: 35px;
+        }
+    
+        .formContainer .overview div {
+            height: 39px;
+            width: 39px;
+        }
+    
+        .formContainer .overview div svg{
+            height: 17px;
+            width: 17px;
+        }
+    
+        .formContainer .overview p{
+            font-size: 15px;
+            line-height: 22px;
+        }
     }
 
-    .step1 form .inputDiv{
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+    @media (max-width: 1250px){
+
+        .formContainer{
+            width: 615px;
+            height: 452px;
+            padding: 34px 51px 0 37px;
+        }
+
+
+        .formContainer h1{
+            font-size: 26px;
+            line-height: 34px;
+        }
+
+        .formContainer .overview{
+            gap: 22px;
+
+            margin-top: 29px;
+            margin-bottom: 29px;
+        }
+
+        .formContainer .overview div {
+            height: 32px;
+            width: 32px;
+        }
+
+        .formContainer .overview p{
+            font-size: 12px;
+            line-height: 17px;
+        }
+
+        .formContainer .overview div svg{
+            height: 14px;
+            width: 14px;
+        }
     }
 
-    .step1 form .inputDiv input {
-        height: 37px;
-        background-color: var(--grey-0);
-        border-radius: 4px;
-        padding-left: 10px;
-    }
+    @media (max-width: 1000px){
 
-    .step1 form .inputDiv label {
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 500;
-        margin-bottom: 10px;
-    }
+        .formContainer{
+            width: 508px;
+            height: 375px;
+            padding: 28px 41px 0 30px;
+        }
 
-    .step1 form .inputDiv p {
-        position: absolute;
-        bottom: -16px;
-        left: 5px;
-        color: #ff2222;
-        font-size: 14px;
-        font-weight: 500;
-    }
 
-    .step1 form .twoInputsDiv{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 51px;
+        .formContainer h1{
+            font-size: 22px;
+            line-height: 28px;
+        }
 
-        width: 100%;
-    }
+        .formContainer .overview{
+            gap: 18px;
 
-    .step1 button{
-        position: absolute;
-        bottom: -130px;
-        right: -40px;
-        width: 192px;
-        height: 46px;
-        background-color: var(--color-primary);
-        border-radius: 4px;
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
 
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 500;
-        color: white;
+        .formContainer .overview div {
+            height: 26px;
+            width: 26px;
+        }
+
+        .formContainer .overview p{
+            font-size: 10px;
+            line-height: 14px;
+        }
+
+        .formContainer .overview div svg{
+            height: 12px;
+            width: 12px;
+        }
     }
 `
